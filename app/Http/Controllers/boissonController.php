@@ -30,6 +30,6 @@ class boissonController extends Controller
         $boisson = Boisson::find($id);
         $boisson->delete();
 
-        return redirect('/delete/{boisson}')->with('delete', 'Contact deleted!');
+        return redirect('/')->with('delete', 'Contact deleted!');
     }
 }

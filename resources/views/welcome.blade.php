@@ -14,8 +14,13 @@
                         <p><span>Prix:</span> {{$boisson->prix}} </p>
                         <p><span>Quantité:</span> {{$boisson->quantité}} </p>
                     </div>
-                   
-                    <button><a href="/delete/{{$boisson->id}}"> Delete boisson</a></button>
+                    <form action="{{ route('deletephoto', $boisson->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+      
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <!-- <button><a href="/delete/{{$boisson->id}}"> Delete boisson</a></button> -->
                 <hr>
            </div>
             @endforeach

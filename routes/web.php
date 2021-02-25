@@ -21,4 +21,4 @@ Route::get('/','boissonController@index');
 Route::get('/boissons/{boisson}','boissonController@show');
 Route::post('/add_boisson/create','boissonController@store');
 Route::get('/add_boisson','boissonController@create');
-Route::post('/delete/{boisson}','boissonController@destroy');
+Route::delete('/delete/{boisson}','boissonController@destroy')->name('deletephoto');
