@@ -22,3 +22,5 @@ Route::get('/boissons/{boisson}','boissonController@show');
 Route::post('/add_boisson/create','boissonController@store');
 Route::get('/add_boisson','boissonController@create');
 Route::delete('/delete/{boisson}','boissonController@destroy')->name('deletephoto');
+Route::get('/edit/{boisson}','boissonController@edit')->name('editphoto');
+Route::put('/update/{boisson}','boissonController@update')->name('update');
