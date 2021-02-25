@@ -10,7 +10,10 @@ class boissonController extends Controller
         $boissons = Boisson::all();
         return view('welcome',['boissons'=>$boissons]);
     }
-    
+    public function show($id){
+        $boisson = Boisson::find($id);
+        return view('show',['boisson'=>$boisson]);
+    }
     public function create(){
         return view('add');
     }
@@ -22,5 +25,11 @@ class boissonController extends Controller
         $boisson->quantité=request('quantité');
         $boisson->save();
         return redirect('/');
+    }
+    public function destroy($id){
+        $boisson = Boisson::find($id);
+        $boisson->delete();
+
+        return redirect('/delete/{boisson}')->with('delete', 'Contact deleted!');
     }
 }
