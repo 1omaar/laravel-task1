@@ -14,13 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('User.home');
 });
+// Route::get('/users',function(){
+//     return view('user');
+// });
+Route::resource('/users','UserController');
 
-Route::get('/','boissonController@index');
-Route::get('/boissons/{boisson}','boissonController@show');
-Route::post('/add_boisson/create','boissonController@store');
-Route::get('/add_boisson','boissonController@create');
-Route::delete('/delete/{boisson}','boissonController@destroy')->name('deletephoto');
-Route::get('/edit/{boisson}','boissonController@edit')->name('editphoto');
-Route::put('/update/{boisson}','boissonController@update')->name('update');
+
+
+Route::post('/users/{id}', 'ImageController@store');
+Route::get('/users/{id}', 'ImageController@show');
+// Route::get('/','boissonController@index');
+// Route::get('/boissons/{boisson}','boissonController@show');
+// Route::post('/add_boisson/create','boissonController@store');
+// Route::get('/add_boisson','boissonController@create');
+// Route::delete('/delete/{boisson}','boissonController@destroy')->name('deletephoto');
+// Route::get('/edit/{boisson}','boissonController@edit')->name('editphoto');
+// Route::put('/update/{boisson}','boissonController@update')->name('update');

@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@charset "UTF-8";
+
+
+
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+.info-design{
+    font-size:110%;
+}
+.container-design{
+    height: 200px;
+}
+.btn-adress-design{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+}
+.btn-adress-design:hover {
+    color: rgb(82, 14, 14);
+}
+.showTitle-design{
+    font-size: 110% !important;
+}
