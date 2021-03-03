@@ -24,7 +24,8 @@ Route::resource('/users','UserController');
 
 
 Route::post('/users/{id}', 'ImageController@store');
-Route::get('/users/{id}', 'ImageController@show');
+// Route::get('/storage/{photo}', 'ImageController@show')->name('display');
+
 // Route::get('/','boissonController@index');
 // Route::get('/boissons/{boisson}','boissonController@show');
 // Route::post('/add_boisson/create','boissonController@store');

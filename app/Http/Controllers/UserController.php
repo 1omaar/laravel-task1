@@ -53,6 +53,7 @@ class UserController extends Controller
         $photos=Image::where('user_id',$id)
             ->with('user')
             ->get();
+            
         return view('User.showUser',compact('user','photos'));
     }
 

@@ -57,20 +57,7 @@ class ImageController extends Controller
         }
         abort(500, 'Could not upload image :(');
     }
-    // public function viewUploads () {
-    //     $images = Image::all();
-    //     dd($images);
-    //     return view('User.showUser',compact('images'));
-    // }
-    
-    // public function show($id)
-    // {
-        
-    //     $photos = Image::findOrFail($id==$user_id);
-        
-    //     return view('User.showUser',compact('photos'));
-    // }
-
+   
     /**
      * Show the form for editing the specified resource.
      *
