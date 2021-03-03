@@ -24,7 +24,7 @@ Route::resource('/users','UserController');
 
 
 Route::post('/users/{id}', 'ImageController@store');
-// Route::get('/storage/{photo}', 'ImageController@show')->name('display');
+
 
 // Route::get('/','boissonController@index');
 // Route::get('/boissons/{boisson}','boissonController@show');
@@ -33,3 +33,9 @@ Route::post('/users/{id}', 'ImageController@store');
 // Route::delete('/delete/{boisson}','boissonController@destroy')->name('deletephoto');
 // Route::get('/edit/{boisson}','boissonController@edit')->name('editphoto');
 // Route::put('/update/{boisson}','boissonController@update')->name('update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+

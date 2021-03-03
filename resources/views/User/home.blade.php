@@ -2,8 +2,7 @@
 @section('contents')
 
     <div>
-
-        <button class="btn btn-green"><a href="{{ route('users.index') }}">voir users</a></button>
+        <h1 class="title-home">Mon Premier Projet Laravel</h1>
     </div>
 
 @endsection
