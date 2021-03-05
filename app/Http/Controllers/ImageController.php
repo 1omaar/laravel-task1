@@ -5,6 +5,8 @@ use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 class ImageController extends Controller
 {
     /**
@@ -66,7 +68,9 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $image=Image::find($id);
+       
+        return view('User.editImage',compact('image'));
     }
 
     /**
@@ -78,7 +82,34 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image=Image::find($id);
+        $userId=Auth::user()->id;
+        $imagePath = str_replace('/storage', '',$image->path);
+        if ($request->hasFile('image')){
+            
+            
+            $file=$request->file('image');
+            
+            
+            $extension=$file->getClientOriginalExtension();
+            $filename=$image->nom=$request->get('nom');
+            
+            $request->image->storeAs('/public', $filename.".".$extension);
+            $url = Storage::url($filename.".".$extension);
+            $files = Image::create([
+                'nom' => $filename,
+                'path' => $url,
+                'user_id' => $userId,
+                ]);
+               
+                if($imagePath){
+                    Storage::delete('/public' . $imagePath);
+                    $image->delete();
+                };
+                
+        }
+        
+        return redirect('/home')->with('image',$files);
     }
 
     /**
@@ -89,6 +120,13 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $image = Image::find($id);
+        $imagePath = str_replace('/storage', '', $image->path);
+        if($imagePath){
+            Storage::delete('/public' . $imagePath);
+            $image->delete();
+        };
+
+        return redirect('/home')->with('delete', 'Contact deleted!');
     }
 }

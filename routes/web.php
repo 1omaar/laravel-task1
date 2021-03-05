@@ -24,7 +24,9 @@ Route::resource('/users','UserController');
 
 
 Route::post('/users/{id}', 'ImageController@store');
-
+Route::delete('/images/{id}','ImageController@destroy')->name('deletephoto');
+Route::get('/edit/{id}','ImageController@edit')->name('editphoto');
+Route::put('/update/{id}','ImageController@update')->name('updatephoto');
 
 // Route::get('/','boissonController@index');
 // Route::get('/boissons/{boisson}','boissonController@show');

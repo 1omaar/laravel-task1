@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Image;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
@@ -14,8 +14,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::all();
-     
+        $id = Auth::id();
+        $users=User::where('id', '!=' , $id)->orWhereNull('id')->get();
+        
+        
         return view('User.users', compact('users'));
        
     }
@@ -53,6 +55,7 @@ class UserController extends Controller
         $photos=Image::where('user_id',$id)
             ->with('user')
             ->get();
+           
             
         return view('User.showUser',compact('user','photos'));
     }
