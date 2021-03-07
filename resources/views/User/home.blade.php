@@ -1,8 +1,12 @@
 @extends('layouts.app')
 @section('contents')
 
-    <div>
-        <h1 class="title-home">Mon Premier Projet Laravel</h1>
-    </div>
+<header class="masthead">
+<div class="container">
+    <div class="masthead-subheading">Welcome To Our Studio!</div>
+    <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+    {{-- <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ route('users.index') }}">Tell Me More</a> --}}
+</div>
+</header>
 
 @endsection
